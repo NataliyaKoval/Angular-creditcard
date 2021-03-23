@@ -21,8 +21,12 @@ export class CardFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    console.log('111');
+  onSubmit(): void {
+    console.log('Form was submitted');
+  }
+
+  onResetClick(): void {
+    this.cardForm.reset();
   }
 
 }
