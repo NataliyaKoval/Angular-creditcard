@@ -1,21 +1,35 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="cardForm">
-  <app-input [control]="cardForm.get('name')" label="Name"></app-input>
-  <app-input [control]="cardForm.get('cardNumber')" label="Card Number"></app-input>
-  <div class="columns">
-    <div class="column">
-      <app-input [control]="cardForm.get('expiration')" label="Expiration (MM/YY)"></app-input>
-    </div>
-    <div class="column">
-      <app-input [control]="cardForm.get('securityCode')" label="Security Code"></app-input>
-    </div>
+<div class="columns">
+
+  <div class="column">
+    <app-card
+      [cardNumber]="cardForm.get('cardNumber').value"
+      [expiration]="cardForm.get('expiration').value"
+      [name]="cardForm.get('name').value"
+    ></app-card>
   </div>
 
-  <div class="buttons">
-    <button [disabled]="cardForm.invalid" class="button is-primary" type="submit">Submit</button>
-    <button (click)="onResetClick()" class="button is-warning" type="button">Reset</button>
+  <div class="column">
+    <form (ngSubmit)="onSubmit()" [formGroup]="cardForm">
+      <app-input [control]="cardForm.get('name')" label="Name"></app-input>
+      <app-input [control]="cardForm.get('cardNumber')" label="Card Number"></app-input>
+      <div class="columns">
+        <div class="column">
+          <app-input [control]="cardForm.get('expiration')" label="Expiration (MM/YY)"></app-input>
+        </div>
+        <div class="column">
+          <app-input [control]="cardForm.get('securityCode')" label="Security Code"></app-input>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button [disabled]="cardForm.invalid" class="button is-primary" type="submit">Submit</button>
+        <button (click)="onResetClick()" class="button is-warning" type="button">Reset</button>
+      </div>
+
+    </form>
   </div>
 
-</form>
+</div>
 
 <!--<hr/>-->
 
